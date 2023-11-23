@@ -9,17 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-eXqS3kqUgizmGA7zmzkyjB4hwb8WVt9KkPDS8s1e9qz5tuSezM50Wg5x4W3W8eDY" crossorigin="anonymous"></script>
-    <style>
-      .carousel-inner {
-        height: 400px; /* Set a fixed height for the carousel */
-      }
-
-      .carousel-item img {
-        object-fit: fill; /* Ensure images cover the entire container */
-        height: 100%; /* Make images fill the entire height of the container */
-        width: 100%; /* Make images fill the entire width of the container */
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -37,13 +27,18 @@
               <a class="nav-link" href="/features.html">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/pricing.html
-              ">Pricing</a>
+              <a
+                class="nav-link"
+                href="/pricing.html
+              "
+                >Pricing</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <!-- carousel start -->
     <div id="carouselExampleFade" class="carousel slide carousel-fade">
       <div class="carousel-inner">
@@ -66,64 +61,108 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+
     <!-- carousel end -->
-    <!-- card start -->
-    <div class="row row-cols-1 row-cols-md-3 g-4 mx-5 mt-3">
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <!-- figure start -->
+    <figure class="ban text-center py-5">
+      <blockquote class="blockquote">
+        <h1>Welcome to Bike Dice</h1>
+      </blockquote>
+      <p class="desc mx-5">
+        Welcome to BIKE DICE, your ultimate destination for top-notch bicycles. Explore our diverse range of high-quality bikes, catering to both beginners and seasoned enthusiasts. From rugged mountain bikes to sleek road bikes, each ride
+        is crafted for performance and style. We take pride in offering not only exceptional products but also a biking community where passion and adventure thrive. Whether you're seeking a thrilling mountain trail or a smooth city
+        commute, find your perfect ride with us. Discover the joy of cycling with BIKE DICE– where quality meets adventure
+      </p>
+    </figure>
+    <!-- figure end -->
+    <!-- profile start -->
+    <div class="prof container bootdey">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="section-title mb-4 pb-2">
+            <h3 class="title mb-4">Our Team</h3>
           </div>
         </div>
+        <!--end col-->
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a short card.</p>
+      <!--end row-->
+      <!-- hoga -->
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2 mx-auto">
+          <div class="team text-center rounded p-3 py-4">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="" />
+            <div class="content mt-3">
+              <h4 class="title mb-0">Lisa Martin</h4>
+              <small class="text-muted">Founder</small>
+              <ul class="list-unstyled mt-3 social-icon social mb-0">
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a>
+                </li>
+              </ul>
+              <!--end icon-->
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        <!-- hoga end -->
+        <!--end col-->
+
+        <!-- abdur  -->
+        <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2 mx-auto">
+          <div class="team text-center rounded p-3 py-4">
+            <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="" />
+            <div class="content mt-3">
+              <h4 class="title mb-0">Calvin Carlo</h4>
+              <small class="text-muted">C.E.O.</small>
+              <ul class="list-unstyled mt-3 social-icon social mb-0">
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a>
+                </li>
+              </ul>
+              <!--end icon-->
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <!-- ab end -->
+        <!--end col-->
+        <!-- Yori -->
+        <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2 mx-auto">
+          <div class="team text-center rounded p-3 py-4">
+            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="" />
+            <div class="content mt-3">
+              <h4 class="title mb-0">Richha Jotchi</h4>
+              <small class="text-muted">Manager</small>
+              <ul class="list-unstyled mt-3 social-icon social mb-0">
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a>
+                </li>
+              </ul>
+              <!--end icon-->
+            </div>
           </div>
         </div>
+        <!-- yori end -->
+        <!--end col-->
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
+      <!--end row-->
     </div>
-    <!-- card end  -->
+    <!-- profile end -->
   </body>
 </html>
