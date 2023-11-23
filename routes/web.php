@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::group(['middleware'=>'guest'], function() {
+//NOT AUTH'ED
+Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('loginPost');
+}); 
 
+//AUTH'ED
 Route::group(['middleware' => 'auth'], function() {
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
