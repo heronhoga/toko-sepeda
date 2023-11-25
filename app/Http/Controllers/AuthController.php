@@ -42,5 +42,10 @@ class AuthController extends Controller
             return redirect('login')->with('message', 'Mohon masukkan data yang benar');
         }
     }
+
+    public function logout() {
+        request()->session()->invalidate();
+        return redirect()->route('welcome');
+    }
     
 }
