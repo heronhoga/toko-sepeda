@@ -11,12 +11,11 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the card */
-      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-      margin: auto; /* Center the card horizontally */
-      max-width: 400px; /* Set a maximum width for the card */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: auto;
+      max-width: 400px;
     }
 
     .jumbotron {
@@ -31,31 +30,31 @@
     }
 
     h1 {
-      margin: 0; /* Remove default margin for h1 */
+      margin: 0;
       color: black;
       margin-bottom: 2%;
     }
 
     p {
-      margin-bottom: 10px; /* Adjust the margin-bottom to control space between elements */
+      margin-bottom: 10px; 
     }
 
     .start-button {
       padding: 10px 20px;
       font-size: 1.5em;
-      background-color: #ff69b4; /* Pink */
-      color: #00bfff; /* Blue */
+      background-color: #ff69b4;
+      color: #00bfff;
       text-decoration: none;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
-      display: block; /* Make the button a block-level element */
-      margin: auto; /* Center the button horizontally */
+      display: block;
+      margin: auto;
     }
 
     .start-button:hover {
-      background-color: #ff1493; /* Darker pink on hover */
+      background-color: #ff1493;
     }
   </style>
 </head>
