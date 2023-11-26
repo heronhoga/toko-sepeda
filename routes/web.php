@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SellingController;
+use App\Http\Controllers\SuperviseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +34,5 @@ Route::group(['middleware' => 'auth'], function() {
 
     //SELLING
     Route::get('/selling', [SellingController::class,'index'])->name('selling');
+    Route::get('/supervise', [SuperviseController::class, 'index'])->name('supervise');
 });

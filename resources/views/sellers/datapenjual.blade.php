@@ -62,33 +62,31 @@
   </nav>
 
     <div id="headerpenjualan">
-        <h1 id="headerpenjualantext">Data penjualan sepeda</h1>
+        <h1 id="headerpenjualantext">Data supervisi penjual</h1>
     </div>
 
     <div class="container text-center">
     <div class="row">
         <div class="col">
-            <a type="button" class="btn btn-outline-warning" href="/selling">Refresh</a>
+            <a type="button" class="btn btn-outline-warning" href="/supervise">Refresh</a>
         </div>
         <div class="col">
             <!-- Dropdown Start -->
-            <form action="/selling" method="get" class="form-inline">
+            <form action="/supervise" method="get" class="form-inline">
                 <div class="input-group">
                     <label for="sort_by" class="input-group-text">Sort by:</label>
                     <select name="sort_by" id="sort_by" class="form-select" onchange="this.form.submit()">
                         <option value="" {{ empty(request('sort_by')) ? 'selected' : '' }}>-- Select --</option>
-                        <option value="alphabet" {{ request('sort_by') == 'alphabet' ? 'selected' : '' }}>A-Z (Sepeda)</option>
-                        <option value="reversed" {{ request('sort_by') == 'reversed' ? 'selected' : '' }}>Z-A (Sepeda)</option>
-                        <option value="latest" {{ request('sort_by') == 'latest' ? 'selected' : '' }}>Latest</option>
-                        <option value="oldest" {{ request('sort_by') == 'oldest' ? 'selected' : '' }}>Oldest</option>
+                        <option value="alphabet" {{ request('sort_by') == 'alphabet' ? 'selected' : '' }}>A-Z (Nama Penjual)</option>
+                        <option value="reversed" {{ request('sort_by') == 'reversed' ? 'selected' : '' }}>Z-A (Nama Penjual)</option>
                     </select>
                 </div>
             </form>
             <!-- Dropdown End -->
         </div>
         <div class="col">
-        <form class="d-flex" role="search" method="get" action="/selling">
-        <input class="form-control me-2" type="search" placeholder="Cari sepeda" aria-label="Search" name="search">
+        <form class="d-flex" role="search" method="get" action="/supervise">
+        <input class="form-control me-2" type="search" placeholder="Cari penjual" aria-label="Search" name="search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         </div>
@@ -99,22 +97,24 @@
     <thead>
         <tr>
             <th scope="col">No</th>
-            <th scope="col">Tanggal pembelian</th>
-            <th scope="col">Nama sepeda</th>
-            <th scope="col">Jenis sepeda</th>
-            <th scope="col">Harga (Termasuk Pajak)</th>
-            <th scope="col">Nama Pembeli</th>
+            <th scope="col">Nama Penjual</th>
+            <th scope="col">Nomor Telepon Penjual</th>
+            <th scope="col">Status</th>
+            <th scope="col">Email</th>
+            <th scope="col">Nama Supervisor</th>
+            <th scope="col">Nomor Telepon Supervisor</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($data as $index => $row)
             <tr>
                 <th scope="row">{{ $index + 1 }}</th>
-                <td>{{ $row->tanggal_transaksi }}</td>
-                <td>{{ $row->nama_sepeda }}</td>
-                <td>{{ $row->jenis_sepeda }}</td>
-                <td>{{ $row->harga_akhir }}</td>
-                <td>{{ $row->nama_user }}</td>
+                <td>{{ $row->nama_penjual }}</td>
+                <td>{{ $row->sellerphone }}</td>
+                <td>{{ $row->status }}</td>
+                <td>{{ $row->email }}</td>
+                <td>{{ $row->nama_supervisor }}</td>
+                <td>{{ $row->supervisorphone }}</td>
             </tr>
         @endforeach
     </tbody>
