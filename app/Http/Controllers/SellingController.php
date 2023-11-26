@@ -39,6 +39,7 @@ class SellingController extends Controller
             FROM users
             INNER JOIN transaksi ON users.id = transaksi.id_user
             INNER JOIN sepeda ON transaksi.id_sepeda = sepeda.id_sepeda
+            WHERE sepeda.deleted_at IS NULL
             ORDER BY $sortColumn $sortDirection
         ");
 
@@ -49,6 +50,7 @@ class SellingController extends Controller
                 INNER JOIN transaksi ON users.id = transaksi.id_user
                 INNER JOIN sepeda ON transaksi.id_sepeda = sepeda.id_sepeda
                 WHERE sepeda.nama_sepeda LIKE '%$searchTerm%'
+                AND sepeda.deleted_at IS NULL
                 ORDER BY $sortColumn $sortDirection
             ");
         }

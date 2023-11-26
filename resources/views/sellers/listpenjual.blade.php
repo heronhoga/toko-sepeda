@@ -62,17 +62,20 @@
   </nav>
 
     <div id="headerpenjualan">
-        <h1 id="headerpenjualantext">Data supervisi penjual</h1>
+        <h1 id="headerpenjualantext">Pengelolaan penjual</h1>
     </div>
 
     <div class="container text-center">
     <div class="row">
-        <div class="col">
-            <a type="button" class="btn btn-outline-warning" href="/supervise">Refresh</a>
+        <div class="col-2">
+            <a type="button" class="btn btn-outline-warning" href="/seller">Refresh</a>
+        </div>
+        <div class="col-2">
+            <a type="button" class="btn btn-outline-danger" href="/seller">Trash</a>
         </div>
         <div class="col">
             <!-- Dropdown Start -->
-            <form action="/supervise" method="get" class="form-inline">
+            <form action="/seller" method="get" class="form-inline">
                 <div class="input-group">
                     <label for="sort_by" class="input-group-text">Sort by:</label>
                     <select name="sort_by" id="sort_by" class="form-select" onchange="this.form.submit()">
@@ -85,7 +88,7 @@
             <!-- Dropdown End -->
         </div>
         <div class="col">
-        <form class="d-flex" role="search" method="get" action="/supervise">
+        <form class="d-flex" role="search" method="get" action="/seller">
         <input class="form-control me-2" type="search" placeholder="Cari penjual" aria-label="Search" name="search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -101,8 +104,7 @@
             <th scope="col">Nomor Telepon Penjual</th>
             <th scope="col">Status</th>
             <th scope="col">Email</th>
-            <th scope="col">Nama Supervisor</th>
-            <th scope="col">Nomor Telepon Supervisor</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -110,15 +112,15 @@
             <tr>
                 <th scope="row">{{ $index + 1 }}</th>
                 <td>{{ $row->nama_penjual }}</td>
-                <td>{{ $row->sellerphone }}</td>
+                <td>{{ $row->nomor_telepon }}</td>
                 <td>{{ $row->status }}</td>
                 <td>{{ $row->email }}</td>
-                <td>{{ $row->nama_supervisor }}</td>
-                <td>{{ $row->supervisorphone }}</td>
+                <td>button pura puranya</td>
             </tr>
         @endforeach
     </tbody>
 </table>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>

@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SuperviseController extends Controller
+class SellerController extends Controller
 {
     public function index(Request $request) {
         $sortBy = $request->input('sort_by', 'alphabet');
-        $sortColumn = 'sellers.nama_penjual';
+        $sortColumn = 'nama_penjual';
         $sortDirection = 'DESC';
         $searchTerm = $request->input('search', '');
 
         switch ($sortBy) {
             case 'alphabet':
-                $sortColumn = 'sellers.nama_penjual';
+                $sortColumn = 'nama_penjual';
                 $sortDirection = 'ASC';
                 break;
             case 'reversed':
@@ -25,24 +25,21 @@ class SuperviseController extends Controller
         }
 
         $data = DB::select("
-        SELECT sellers.*, supervisors.*, sellers.nomor_telepon AS sellerphone, supervisors.nomor_telepon AS supervisorphone
+        SELECT *
         FROM sellers
-        INNER JOIN supervisors ON sellers.id_supervisor = supervisors.id
         WHERE sellers.deleted_at IS NULL
         ORDER BY $sortColumn $sortDirection
     ");
 
     if ($searchTerm !== '') {
         $data = DB::select("
-        SELECT sellers.*, supervisors.*, sellers.nomor_telepon AS sellerphone, supervisors.nomor_telepon AS supervisorphone
+        SELECT *
         FROM sellers
-        INNER JOIN supervisors ON sellers.id_supervisor = supervisors.id
         WHERE sellers.nama_penjual LIKE '%$searchTerm%'
         AND sellers.deleted_at IS NULL
         ORDER BY $sortColumn $sortDirection
         ");
     }
-
-        return view('sellers.datapenjual')->with('data', $data);
+        return view ('sellers.listpenjual')->with('data', $data);
     }
 }

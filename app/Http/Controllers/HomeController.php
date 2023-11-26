@@ -14,7 +14,9 @@ class HomeController extends Controller
         FROM users
         INNER JOIN transaksi ON users.id = transaksi.id_user
         INNER JOIN sepeda ON transaksi.id_sepeda = sepeda.id_sepeda
+        WHERE sepeda.deleted_at IS NULL
         ORDER BY transaksi.tanggal_transaksi DESC
+
         ');
         // dd($data);
 

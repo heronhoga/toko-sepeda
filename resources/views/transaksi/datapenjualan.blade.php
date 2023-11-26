@@ -49,7 +49,7 @@
         <a class="nav-link" href="/supervise">Supervisi Penjual</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Penjual</a>
+        <a class="nav-link" href="/seller">Penjual</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Sepeda</a>
