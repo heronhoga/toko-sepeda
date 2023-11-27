@@ -63,4 +63,12 @@ Route::group(['middleware' => 'auth'], function() {
     //-UPDATE BIKE
     Route::get('/editbike/{id}', [BikeController::class, 'editBikePage'])->name('editBikePage');
     Route::put('/editbike/{id}', [BikeController::class, 'editBike'])->name('editBike');
+
+    //-DELETE (SOFT) SEPEDA
+    Route::put('/deletebike/{id}', [BikeController::class, 'deleteBike'])->name('deleteBike');
+
+    //-TRASH BIKE GET
+    Route::get('/trashbike', [BikeController::class, 'trashBikeIndex'])->name('trashBikeIndex');
+    Route::put('/trashbike/{id}', [BikeController::class, 'recoverBike'])->name('recoverBike');
+    Route::delete('/trashbike/{id}', [BikeController::class, 'hardDeleteBike'])->name('hardDeleteBike');
 });

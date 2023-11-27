@@ -123,4 +123,78 @@ class BikeController extends Controller
 
     return redirect()->route('bikeIndex');
     }
+
+    public function deleteBike($id) {
+        $date = date("Y-m-d");
+        DB::update("
+        UPDATE sepeda
+        SET deleted_at = '$date'
+        WHERE id_sepeda = ?
+    ", [
+        $id
+    ]);
+
+    return redirect()->route('bikeIndex');
+    }
+
+    public function trashBikeIndex(Request $request) {
+        $sortBy = $request->input('sort_by', 'alphabet');
+        $sortColumn = 'nama_sepeda';
+        $sortDirection = 'DESC';
+        $searchTerm = $request->input('search', '');
+
+        switch ($sortBy) {
+            case 'alphabet':
+                $sortColumn = 'nama_sepeda';
+                $sortDirection = 'ASC';
+                break;
+            case 'reversed':
+                $sortColumn = 'nama_sepeda';
+                $sortDirection = 'DESC';
+                break;
+        }
+
+        $data = DB::select("
+        SELECT *
+        FROM sepeda
+        WHERE sepeda.deleted_at IS NOT NULL
+        ORDER BY $sortColumn $sortDirection
+    ");
+
+    if ($searchTerm !== '') {
+        $data = DB::select("
+        SELECT *
+        FROM sepeda
+        WHERE sepeda.nama_sepeda LIKE '%$searchTerm%'
+        AND sepeda.deleted_at IS NOT NULL
+        ORDER BY $sortColumn $sortDirection
+        ");
+    }
+
+        return view ('sepeda.trashbike')->with('data', $data);
+    }
+
+    public function hardDeleteBike($id) {
+        DB::delete("
+        DELETE FROM sepeda
+        WHERE id_sepeda = ?
+    ", [
+        $id
+    ]);
+
+    return redirect()->route('trashBikeIndex');
+    }
+
+    public function recoverBike($id) {
+
+        DB::update("
+        UPDATE sepeda
+        SET deleted_at = NULL
+        WHERE id_sepeda = ?
+    ", [
+        $id
+    ]);
+
+    return redirect()->route('trashBikeIndex');
+    }
 }
