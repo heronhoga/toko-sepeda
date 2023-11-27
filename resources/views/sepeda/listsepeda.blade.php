@@ -123,7 +123,7 @@
               <td>{{ $row->masa_garansi }} Tahun</td>
               <td>{{ $row->harga }}</td>
               <td>
-                  <a href="#" class="btn btn-primary">Edit</a>
+                  <a href="{{ route('editBikePage', ['id' => $row->id_sepeda]) }}" class="btn btn-primary">Edit</a>
   
                   <form action="#" method="post" class="d-inline">
                       @csrf

@@ -60,4 +60,7 @@ Route::group(['middleware' => 'auth'], function() {
     //-CREATE BIKE
     Route::get('/createbike', [BikeController::class, 'createBikePage'])->name('createBikePage');
     Route::post('/createbike', [BikeController::class, 'createBike'])->name('createBike');
+    //-UPDATE BIKE
+    Route::get('/editbike/{id}', [BikeController::class, 'editBikePage'])->name('editBikePage');
+    Route::put('/editbike/{id}', [BikeController::class, 'editBike'])->name('editBike');
 });
