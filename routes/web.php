@@ -39,7 +39,18 @@ Route::group(['middleware' => 'auth'], function() {
 
     //SELLER
     Route::get('/seller', [SellerController::class, 'index'])->name('seller');
+    //-CREATE SELLER
     Route::get('/createseller', [SellerController::class, 'createSellerPage'])->name('createSellerPage');
-    Route::post('createseller', [SellerController::class, 'createSeller'])->name('createSeller');
+    Route::post('/createseller', [SellerController::class, 'createSeller'])->name('createSeller');
+    //-UPDATE SELLER
+    Route::get('/editseller/{id}', [SellerController::class, 'editSellerPage'])->name('editSellerPage');
+    Route::put('/editseller/{id}', [SellerController::class, 'editSeller'])->name('editSeller');
 
+    //-DELETE (SOFT) SELLER
+    Route::put('/deleteseller/{id}', [SellerController::class, 'deleteSeller'])->name('deleteSeller');
+
+    //-TRASH SELLER GET
+    Route::get('/trashseller', [SellerController::class, 'trashSellerIndex'])->name('trashSellerIndex');
+    Route::put('/trashseller/{id}', [SellerController::class, 'recover'])->name('recover');
+    Route::delete('/trashseller/{id}', [SellerController::class, 'hardDelete'])->name('hardDelete');
 });

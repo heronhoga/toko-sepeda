@@ -62,23 +62,20 @@
   </nav>
 
     <div id="headerpenjualan">
-        <h1 id="headerpenjualantext">Pengelolaan penjual</h1>
+        <h1 id="headerpenjualantext">Pengelolaan data penjual yang terhapus</h1>
     </div>
 
     <div class="container text-center">
     <div class="row">
         <div class="col-1">
-            <a type="button" class="btn btn-outline-warning" href="/seller">Refresh</a>
+            <a type="button" class="btn btn-outline-warning" href="/trashseller">Refresh</a>
         </div>
         <div class="col-1">
-            <a type="button" class="btn btn-outline-info" href="/createseller">Create</a>
-        </div>
-        <div class="col-1">
-            <a type="button" class="btn btn-outline-danger" href="/trashseller">Trash</a>
+            <a type="button" class="btn btn-outline-dark" href="/seller">Kembali</a>
         </div>
         <div class="col">
             <!-- Dropdown Start -->
-            <form action="/seller" method="get" class="form-inline">
+            <form action="/trashseller" method="get" class="form-inline">
                 <div class="input-group">
                     <label for="sort_by" class="input-group-text">Sort by:</label>
                     <select name="sort_by" id="sort_by" class="form-select" onchange="this.form.submit()">
@@ -91,7 +88,7 @@
             <!-- Dropdown End -->
         </div>
         <div class="col">
-        <form class="d-flex" role="search" method="get" action="/seller">
+        <form class="d-flex" role="search" method="get" action="/trashseller">
         <input class="form-control me-2" type="search" placeholder="Cari penjual" aria-label="Search" name="search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -119,12 +116,15 @@
               <td>{{ $row->status }}</td>
               <td>{{ $row->email }}</td>
               <td>
-                  <a href="{{ route('editSellerPage', ['id' => $row->id]) }}" class="btn btn-primary">Edit</a>
-  
-                  <form action="{{ route('deleteSeller', ['id' => $row->id]) }}" method="post" class="d-inline">
+                <form action="{{ route('recover', ['id' => $row->id]) }}" method="post" class="d-inline">
+                    @csrf
+                    @method('put')
+                    <button type="submit" class="btn btn-info ml-2">Recover</button>
+                </form>
+                  <form action="{{ route('hardDelete', ['id' => $row->id]) }}" method="post" class="d-inline">
                       @csrf
-                      @method('put')
-                      <button type="submit" class="btn btn-danger ml-2">Delete</button>
+                      @method('delete')
+                      <button type="submit" class="btn btn-danger ml-2">Permanent Remove</button>
                   </form>
               </td>
           </tr>

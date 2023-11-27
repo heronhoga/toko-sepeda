@@ -79,4 +79,123 @@ class SellerController extends Controller
 
     return redirect()->route('seller');
     }
+
+    public function editSellerPage($id) {
+        $data = DB::select("
+        SELECT *
+        FROM supervisors
+        ");
+
+        $currentdata = DB::select("
+        SELECT *
+        FROM sellers
+        WHERE id = $id
+        ");
+
+        $currentdata = $currentdata[0];
+        return view ('sellers.editseller')->with('data', $data)->with('currentdata', $currentdata);
+    }
+
+    public function editSeller(Request $request, $id) {
+        $request->validate([
+            'email' => 'required|email',
+            'nama_penjual' => 'required',
+            'nomor_telepon' => 'required|numeric|max:999999999999',
+            'status' => 'required',
+            'id_supervisor' => 'required'
+        ]);
+
+        DB::update("
+        UPDATE sellers
+        SET email = ?,
+            nama_penjual = ?,
+            nomor_telepon = ?,
+            status = ?,
+            id_supervisor = ?
+        WHERE email = ?
+    ", [
+        $request->email,
+        $request->nama_penjual,
+        $request->nomor_telepon,
+        $request->status,
+        $request->id_supervisor,
+        $request->email
+    ]);
+
+    return redirect()->route('seller');
+    }
+
+    public function deleteSeller($id) {
+        $date = date("Y-m-d");
+        DB::update("
+        UPDATE sellers
+        SET deleted_at = '$date'
+        WHERE id = ?
+    ", [
+        $id
+    ]);
+
+    return redirect()->route('seller');
+    }
+
+    public function trashSellerIndex(Request $request) {
+        $sortBy = $request->input('sort_by', 'alphabet');
+        $sortColumn = 'nama_penjual';
+        $sortDirection = 'DESC';
+        $searchTerm = $request->input('search', '');
+
+        switch ($sortBy) {
+            case 'alphabet':
+                $sortColumn = 'nama_penjual';
+                $sortDirection = 'ASC';
+                break;
+            case 'reversed':
+                $sortColumn = 'sellers.nama_penjual';
+                $sortDirection = 'DESC';
+                break;
+        }
+
+        $data = DB::select("
+        SELECT *
+        FROM sellers
+        WHERE sellers.deleted_at IS NOT NULL
+        ORDER BY $sortColumn $sortDirection
+    ");
+
+    if ($searchTerm !== '') {
+        $data = DB::select("
+        SELECT *
+        FROM sellers
+        WHERE sellers.nama_penjual LIKE '%$searchTerm%'
+        AND sellers.deleted_at IS NOT NULL
+        ORDER BY $sortColumn $sortDirection
+        ");
+    }
+
+        return view ('sellers.trashseller')->with('data', $data);
+    }
+
+    public function hardDelete($id) {
+        DB::delete("
+        DELETE FROM sellers
+        WHERE id = ?
+    ", [
+        $id
+    ]);
+
+    return redirect()->route('trashSellerIndex');
+    }
+
+    public function recover($id) {
+
+        DB::update("
+        UPDATE sellers
+        SET deleted_at = NULL
+        WHERE id = ?
+    ", [
+        $id
+    ]);
+
+    return redirect()->route('trashSellerIndex');
+    }
 }
