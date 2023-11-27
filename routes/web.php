@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BikeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SellingController;
@@ -53,4 +54,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/trashseller', [SellerController::class, 'trashSellerIndex'])->name('trashSellerIndex');
     Route::put('/trashseller/{id}', [SellerController::class, 'recover'])->name('recover');
     Route::delete('/trashseller/{id}', [SellerController::class, 'hardDelete'])->name('hardDelete');
+
+
+
+    //BIKE
+    Route::get('/bike', [BikeController::class, 'index'])->name('index');
 });

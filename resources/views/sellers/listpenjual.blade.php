@@ -41,22 +41,24 @@
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="/home">Home</a>
-      </li>
-      <li class="nav-item">
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="/selling">Data transaksi</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/supervise">Supervisi Penjual</a>
-      </li>
-      <li class="nav-item">
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/supervise"
+            >Supervisi Penjual</a
+        >
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="/seller">Penjual</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sepeda</a>
-      </li>
-      <li class="nav-item">
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/bike">Sepeda</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
-      </li>
+    </li>
     </ul>
   </div>
   </nav>
