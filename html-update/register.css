@@ -1,0 +1,24 @@
+.card {
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.315); /* Ubah nilai alpha sesuai kebutuhan Anda */
+}
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(153, 251, 189, 0.3), rgba(143, 210, 244, 0.187));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(88, 117, 98, 0.179), rgba(143, 210, 244, 0.138));
+}
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #8ac5a0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+}
