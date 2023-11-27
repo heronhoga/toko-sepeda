@@ -98,7 +98,7 @@ class SellerController extends Controller
 
     public function editSeller(Request $request, $id) {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required',
             'nama_penjual' => 'required',
             'nomor_telepon' => 'required|numeric|max:999999999999',
             'status' => 'required',
@@ -112,14 +112,14 @@ class SellerController extends Controller
             nomor_telepon = ?,
             status = ?,
             id_supervisor = ?
-        WHERE email = ?
+        WHERE id = ?
     ", [
         $request->email,
         $request->nama_penjual,
         $request->nomor_telepon,
         $request->status,
         $request->id_supervisor,
-        $request->email
+        $id
     ]);
 
     return redirect()->route('seller');

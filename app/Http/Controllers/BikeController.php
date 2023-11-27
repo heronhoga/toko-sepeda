@@ -42,4 +42,37 @@ class BikeController extends Controller
     }
         return view ('sepeda.listsepeda')->with('data', $data);
     }
+
+    public function createBikePage() {
+        $data = DB::select("
+        SELECT *
+        FROM sellers
+        ");
+        return view ('sepeda.createbike')->with('data', $data);
+    }
+
+    public function createBike(Request $request) {
+        $request->validate([
+            'merek_sepeda' => 'required',
+            'jenis_sepeda' => 'required',
+            'nama_sepeda' => 'required',
+            'masa_garansi' => 'required|numeric',
+            'harga' => 'required',
+            'id_penjual' => 'required'
+        ]);
+
+        DB::insert("
+        INSERT INTO sepeda (merek_sepeda, jenis_sepeda, nama_sepeda, masa_garansi, harga, id_penjual)
+        VALUES (?, ?, ?, ?, ?, ?)
+        ", [
+        $request->merek_sepeda,
+        $request->jenis_sepeda,
+        $request->nama_sepeda,
+        $request->masa_garansi,
+        $request->harga,
+        $request->id_penjual,
+    ]);
+
+    return redirect()->route('bikeIndex');
+    }
 }

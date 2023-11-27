@@ -55,8 +55,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/trashseller/{id}', [SellerController::class, 'recover'])->name('recover');
     Route::delete('/trashseller/{id}', [SellerController::class, 'hardDelete'])->name('hardDelete');
 
-
-
     //BIKE
-    Route::get('/bike', [BikeController::class, 'index'])->name('index');
+    Route::get('/bike', [BikeController::class, 'index'])->name('bikeIndex');
+    //-CREATE BIKE
+    Route::get('/createbike', [BikeController::class, 'createBikePage'])->name('createBikePage');
+    Route::post('/createbike', [BikeController::class, 'createBike'])->name('createBike');
 });

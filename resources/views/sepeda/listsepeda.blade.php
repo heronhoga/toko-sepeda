@@ -64,7 +64,7 @@
   </nav>
 
     <div id="headerpenjualan">
-        <h1 id="headerpenjualantext">Pengelolaan penjual</h1>
+        <h1 id="headerpenjualantext">Pengelolaan sepeda</h1>
     </div>
 
     <div class="container text-center">
