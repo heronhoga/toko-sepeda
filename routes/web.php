@@ -38,5 +38,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/supervise', [SuperviseController::class, 'index'])->name('supervise');
 
     //SELLER
-    Route::get('seller', [SellerController::class, 'index'])->name('seller');
+    Route::get('/seller', [SellerController::class, 'index'])->name('seller');
+    Route::get('/createseller', [SellerController::class, 'createSellerPage'])->name('createSellerPage');
+    Route::post('createseller', [SellerController::class, 'createSeller'])->name('createSeller');
+
 });

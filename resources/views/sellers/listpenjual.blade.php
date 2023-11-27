@@ -67,10 +67,13 @@
 
     <div class="container text-center">
     <div class="row">
-        <div class="col-2">
+        <div class="col-1">
             <a type="button" class="btn btn-outline-warning" href="/seller">Refresh</a>
         </div>
-        <div class="col-2">
+        <div class="col-1">
+            <a type="button" class="btn btn-outline-info" href="/createseller">Create</a>
+        </div>
+        <div class="col-1">
             <a type="button" class="btn btn-outline-danger" href="/seller">Trash</a>
         </div>
         <div class="col">
