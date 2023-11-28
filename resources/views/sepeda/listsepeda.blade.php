@@ -57,6 +57,9 @@
             <a class="nav-link" href="/bike">Sepeda</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
         </li>
     </ul>

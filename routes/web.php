@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SellingController;
 use App\Http\Controllers\SuperviseController;
@@ -71,4 +72,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/trashbike', [BikeController::class, 'trashBikeIndex'])->name('trashBikeIndex');
     Route::put('/trashbike/{id}', [BikeController::class, 'recoverBike'])->name('recoverBike');
     Route::delete('/trashbike/{id}', [BikeController::class, 'hardDeleteBike'])->name('hardDeleteBike');
+
+    //PROFILE
+    Route::get('/profile', [ProfileController::class, 'profileIndex'])->name('profileIndex');
+    Route::get('/editprofile/{id}', [ProfileController::class, 'profileEdit'])->name('profileEdit');
 });
