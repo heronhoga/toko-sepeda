@@ -26,4 +26,29 @@ class ProfileController extends Controller
         $data = $data[0];
         return view('users.editprofile')->with('data', $data);
     }
+
+    public function profileUpdate(Request $request, $id) {
+        // dd($request->all());
+        $request->validate([
+            'nama_supervisor' => 'required',
+            'email' => 'required|email',
+            'nomor_telepon' => 'required|numeric',
+        ]);
+
+        DB::update("
+        UPDATE supervisors
+        SET nama_supervisor = ?,
+            email = ?,
+            nomor_telepon = ?
+        WHERE id = ?
+    ", [
+        $request->nama_supervisor,
+        $request->email,
+        $request->nomor_telepon,
+        $id
+    ]);
+
+    return redirect()->route('profileIndex');
+
+    }
 }

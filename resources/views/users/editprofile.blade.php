@@ -120,7 +120,9 @@
                                 Account Details
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="/editprofile/{{$data->id}}" method="post">
+                                    @csrf
+                                    @method('put')
                                     <div class="mb-3">
                                         <label class="small mb-1" for="nama"
                                             >Nama</label
@@ -166,25 +168,8 @@
                                             
                                         />
                                     </div>
-                                    <div class="mb-3">
-                                        <label
-                                            class="small mb-1"
-                                            for="inputEmail"
-                                            >Tanggal Masuk</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputEmail"
-                                            type="date"
-                                            name="tanggal_masuk"
-                                            placeholder="Enter your email address"
-                                            value="{{$data->tanggal_masuk}}"
-                                            
-                                        />
-                                    </div>
                                     <button
                                         class="btn btn-primary"
-                                        href="/editprofile/{{$data->id}}"
                                         type="submit"
                                     >
                                         Edit

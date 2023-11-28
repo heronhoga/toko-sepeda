@@ -190,37 +190,7 @@
                 </div>
             </div>
 
-            <!-- Seller List -->
-            <div class="card mt-4">
-                <div class="card-header bg-primary text-white">Seller List</div>
-                <div class="card-body">
-                    <!-- Add your seller list content here -->
-                    <p>List of sellers goes here...</p>
-                </div>
-            </div>
 
-            <!-- Transaction Table -->
-            <div class="card mt-4">
-                <div class="card-header bg-primary text-white">
-                    Transaction Table
-                </div>
-                <div class="card-body">
-                    <!-- Add your transaction table content here -->
-                    <p>Transaction table goes here...</p>
-                </div>
-            </div>
-
-            <!-- Bike and User List -->
-            <div class="card mt-4">
-                <div class="card-header bg-primary text-white">
-                    Bike and User List
-                </div>
-                <div class="card-body">
-                    <!-- Add your bike and user list content here -->
-                    <p>List of bikes and users goes here...</p>
-                </div>
-            </div>
-        </div>
 
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

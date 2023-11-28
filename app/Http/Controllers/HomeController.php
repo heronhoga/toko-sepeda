@@ -16,6 +16,7 @@ class HomeController extends Controller
         INNER JOIN sepeda ON transaksi.id_sepeda = sepeda.id_sepeda
         WHERE sepeda.deleted_at IS NULL
         ORDER BY transaksi.tanggal_transaksi DESC
+        LIMIT 5
 
         ');
         // dd($data);
